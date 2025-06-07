@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: Geometric;
+  src: url('./assets/fonts/URWGeometricRegular.otf');
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: inherit;
+  font-family: Geometric;
+  user-select: none;
+}
+
+input:focus {
+  outline: none;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+.react-tiny-popover-container {
+  z-index: 100;
+}
+
+polygon {
+  fill: white;
+}
+
+.Toastify__toast {
+  z-index: 1000;
+}
+.Toastify__toast-container.Toastify__toast-container--bottom-right {
+  max-width: 90vw;
+}
