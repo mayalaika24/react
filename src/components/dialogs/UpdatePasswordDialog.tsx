@@ -1,6 +1,6 @@
 import { useState } from "react"
 import DialogLayout from "../../layouts/DialogLayout"
-import { ApiResponse, InputType } from "../../types"
+import { InputType } from "../../types"
 import Input from "../helpers/Input"
 import { useMutation } from "@tanstack/react-query"
 import { api } from "../../lib/api"
@@ -42,13 +42,13 @@ function UpdatePasswordDialog({ onClose }: { onClose: () => void }) {
     })
   const { isPending, mutate } = useMutation({
     mutationFn: () => api.post('Account/UpdatePassword', handleFormData(dataForm)),
-    onSuccess: (data) => {
+    onSuccess: (data: any) => {
       if(data.status) {
         toast.success('Password Updated Successfully');
         setIsSubmitetd(true);
         onClose();
       } else {
-        toast.error('Something went wrong');
+        toast.error(data?.errorMessage || 'Something went wrong');
       }
     }
   })
@@ -57,7 +57,8 @@ function UpdatePasswordDialog({ onClose }: { onClose: () => void }) {
   }
   function handleSubmit () {
     setIsSubmitetd(true);
-    if(handleFormValidation(dataForm, dataForm.confirmPassword.value)) return
+    // console.log(handleFormValidation(dataForm, dataForm.newPassword.value))
+    if(handleFormValidation(dataForm, dataForm.newPassword.value)) return
     mutate()
   }
   return (

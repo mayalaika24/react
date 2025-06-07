@@ -23,10 +23,10 @@ export function handleFieldValidation (object: InputType, comparedValue: string 
     }
 }
 
-export function handleFormValidation (object: any, confirmValue: string = '') {
+export function handleFormValidation (object: any, comparedValue: string = '') {
     const keys = Object.keys(object);
     return keys.find(key => {
-        return !handleFieldValidation(object[key], confirmValue)
+        return !handleFieldValidation(object[key], comparedValue)
     })
 
 }

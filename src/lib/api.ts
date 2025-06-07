@@ -33,7 +33,9 @@ apiClient.interceptors.request.use((config) => {
 });
 
 apiClient.interceptors.response.use(
-  (response) => response.data,
+  (response) => {
+    return response.data
+  },
   (error) => {
     if (error.response) {
       const response = error.response;

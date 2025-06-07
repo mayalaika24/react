@@ -36,11 +36,13 @@ const Login = () => {
     const dispatch = useDispatch<AppDispatch>()
     const { isPending, mutate } = useMutation({
         mutationFn: () => api.post('Account/login', handleFormData(dataForm)),
-        onSuccess: (data) => {
+        onSuccess: (data: any) => {
             if(data?.status) {
                 setAuthToken(data.data.token);
                 dispatch(setUserData(data.data));
                 toast.success(`Welcome ${ data.data.userName }`)
+            } else {
+                toast.error(data?.errorMessage || 'Something went wrong');
             }
         },
         onError: (error) => {
