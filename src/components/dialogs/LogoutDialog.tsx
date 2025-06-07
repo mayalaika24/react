@@ -12,7 +12,7 @@ function LogoutDialog({ onClose }: { onClose: () => void }) {
   function handleClose () {
     dispatch(clearUserData());
     handleNaigate('/auth/login')
-    toast.error('Logged out successfully!')
+    toast.success('Logged out successfully!')
   }
   return (
     <DialogLayout theme="red" centerlizedButton small onClose={ onClose } onClick={ () => handleClose() }>
