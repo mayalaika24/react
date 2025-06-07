@@ -43,9 +43,7 @@ function UpdatePasswordDialog({ onClose }: { onClose: () => void }) {
   const { isPending, mutate } = useMutation({
     mutationFn: () => api.post('Account/UpdatePassword', handleFormData(dataForm)),
     onSuccess: (data) => {
-      if(!data.status) {
-        toast.error(data.errorMessage)
-      } else {
+      if(data.status) {
         toast.success('Password Updated Successfully');
         setIsSubmitetd(true);
         onClose();
