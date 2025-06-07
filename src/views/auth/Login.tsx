@@ -59,7 +59,7 @@ const Login = () => {
     }
     return (
         <FormLayout className="w-full max-w-[400px]">
-            <div className="relative">sss
+            <div className="relative">
                 <Input onChange={ val => handleChange('identification', val) } data={ dataForm.identification } />
                 { isSubmitted && !handleFieldValidation(dataForm.identification) && <Validation /> }
             </div>
