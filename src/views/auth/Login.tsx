@@ -41,9 +41,6 @@ const Login = () => {
                 setAuthToken(data.data.token);
                 dispatch(setUserData(data.data));
                 toast.success(`Welcome ${ data.data.userName }`)
-            } else {
-                // console.log(data)
-                toast.error('User not found')
             }
         },
         onError: (error) => {
