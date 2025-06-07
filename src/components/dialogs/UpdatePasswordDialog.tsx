@@ -1,6 +1,6 @@
 import { useState } from "react"
 import DialogLayout from "../../layouts/DialogLayout"
-import { InputType } from "../../types"
+import { ApiResponse, InputType } from "../../types"
 import Input from "../helpers/Input"
 import { useMutation } from "@tanstack/react-query"
 import { api } from "../../lib/api"
@@ -47,6 +47,8 @@ function UpdatePasswordDialog({ onClose }: { onClose: () => void }) {
         toast.success('Password Updated Successfully');
         setIsSubmitetd(true);
         onClose();
+      } else {
+        toast.error('Something went wrong');
       }
     }
   })

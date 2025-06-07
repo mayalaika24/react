@@ -55,3 +55,11 @@ export type Route = {
 }
 
 export type VoidFunc = () => void;
+
+export type ApiResponse<T = any> = {
+  data: T;
+  status: boolean;
+  code: number;
+  errorMessage: string | null;
+  totalCount: number
+}
